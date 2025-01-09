@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manage your billing and payments with LogiTech Solutions">
+    <title>Billing & Payments - LogiTech Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="dashboard-body">
+    <!-- Dashboard Navigation -->
+    <nav class="dashboard-nav">
+        <!-- Same navigation content -->
+    </nav>
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <!-- Same sidebar content -->
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <section class="billing-section">
+                <h1>Billing & Payments</h1>
+
+                <!-- Billing Overview -->
+                <div class="billing-overview">
+                    <div class="billing-cards">
+                        <div class="billing-card">
+                            <div class="card-icon">
+                                <i class="fas fa-file-invoice-dollar"></i>
+                            </div>
+                            <div class="card-info">
+                                <h3>Outstanding Balance</h3>
+                                <p class="amount">$2,450.00</p>
+                                <span class="due-date">Due by Oct 30, 2023</span>
+                            </div>
+                        </div>
+                        <div class="billing-card">
+                            <div class="card-icon">
+                                <i class="fas fa-credit-card"></i>
+                            </div>
+                            <div class="card-info">
+                                <h3>Last Payment</h3>
+                                <p class="amount">$1,850.00</p>
+                                <span class="payment-date">Paid on Oct 15, 2023</span>
+                            </div>
+                        </div>
+                        <div class="billing-card">
+                            <div class="card-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="card-info">
+                                <h3>Monthly Average</h3>
+                                <p class="amount">$2,100.00</p>
+                                <span>Last 6 months</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Methods -->
+                <div class="payment-methods">
+                    <div class="section-header">
+                        <h2>Payment Methods</h2>
+                        <button class="add-method-btn">
+                            <i class="fas fa-plus"></i> Add Payment Method
+                        </button>
+                    </div>
+                    <div class="methods-grid">
+                        <div class="payment-card default">
+                            <div class="card-type">
+                                <i class="fab fa-cc-visa"></i>
+                                <span class="default-badge">Default</span>
+                            </div>
+                            <div class="card-details">
+                                <p class="card-number">**** **** **** 4589</p>
+                                <p class="expiry">Expires 05/24</p>
+                            </div>
+                            <div class="card-actions">
+                                <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                                <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                        <div class="payment-card">
+                            <div class="card-type">
+                                <i class="fab fa-cc-mastercard"></i>
+                            </div>
+                            <div class="card-details">
+                                <p class="card-number">**** **** **** 7856</p>
+                                <p class="expiry">Expires 08/25</p>
+                            </div>
+                            <div class="card-actions">
+                                <button class="set-default-btn">Set as Default</button>
+                                <button class="edit-btn"><i class="fas fa-edit"></i></button>
+                                <button class="delete-btn"><i class="fas fa-trash"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Invoice History -->
+                <div class="invoice-history">
+                    <div class="section-header">
+                        <h2>Invoice History</h2>
+                        <div class="invoice-actions">
+                            <button class="export-btn">
+                                <i class="fas fa-download"></i> Export All
+                            </button>
+                        </div>
+                    </div>
+                    <div class="invoice-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Invoice #</th>
+                                    <th>Date</th>
+                                    <th>Amount</th>
+                                    <th>Status</th>
+                                    <th>Due Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>INV-2023-001</td>
+                                    <td>Oct 01, 2023</td>
+                                    <td>$2,450.00</td>
+                                    <td><span class="status pending">Pending</span></td>
+                                    <td>Oct 30, 2023</td>
+                                    <td class="actions">
+                                        <button class="view-btn"><i class="fas fa-eye"></i></button>
+                                        <button class="download-btn"><i class="fas fa-download"></i></button>
+                                        <button class="pay-btn">Pay Now</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>INV-2023-002</td>
+                                    <td>Sep 15, 2023</td>
+                                    <td>$1,850.00</td>
+                                    <td><span class="status paid">Paid</span></td>
+                                    <td>Oct 15, 2023</td>
+                                    <td class="actions">
+                                        <button class="view-btn"><i class="fas fa-eye"></i></button>
+                                        <button class="download-btn"><i class="fas fa-download"></i></button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Billing Settings -->
+                <div class="billing-settings">
+                    <div class="section-header">
+                        <h2>Billing Settings</h2>
+                    </div>
+                    <div class="settings-grid">
+                        <div class="setting-card">
+                            <h3>Billing Address</h3>
+                            <div class="address-details">
+                                <p>John Doe</p>
+                                <p>123 Business Street</p>
+                                <p>New York, NY 10001</p>
+                                <p>United States</p>
+                                <button class="edit-address-btn">Edit Address</button>
+                            </div>
+                        </div>
+                        <div class="setting-card">
+                            <h3>Billing Preferences</h3>
+                            <div class="preferences-form">
+                                <div class="form-group">
+                                    <label>
+                                        <input type="checkbox" checked> 
+                                        Receive invoice by email
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label>
+                                        <input type="checkbox" checked> 
+                                        Payment reminders
+                                    </label>
+                                </div>
+                                <div class="form-group">
+                                    <label>
+                                        <input type="checkbox"> 
+                                        Auto-pay enabled
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html> 

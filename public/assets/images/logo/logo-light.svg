@@ -1,0 +1,11 @@
+<svg width="200" height="50" viewBox="0 0 200 50" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        .logo-text { font-family: Arial, sans-serif; font-weight: bold; }
+        .light { fill: #ffffff; }
+        .accent { fill: #3498db; }
+    </style>
+    <g transform="translate(10,35)">
+        <path class="accent" d="M0,0 L10,-20 L20,0 L15,0 L10,-10 L5,0 Z"/>
+        <text x="25" y="0" class="logo-text light">LogiTech</text>
+    </g>
+</svg> 

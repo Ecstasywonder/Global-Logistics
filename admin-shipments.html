@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shipments Management - LogiTech Solutions Admin">
+    <title>Shipments Management - LogiTech Admin</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="admin-body">
+    <!-- Same Nav and Sidebar as admin.html -->
+
+    <main class="admin-main">
+        <section class="shipments-management">
+            <div class="section-header">
+                <h1>Shipments Management</h1>
+                <div class="header-actions">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search by tracking number...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <button class="create-shipment-btn">
+                        <i class="fas fa-plus"></i> Create Shipment
+                    </button>
+                </div>
+            </div>
+
+            <!-- Shipment Filters -->
+            <div class="filter-bar">
+                <select class="status-filter">
+                    <option value="">All Status</option>
+                    <option value="pending">Pending</option>
+                    <option value="processing">Processing</option>
+                    <option value="in_transit">In Transit</option>
+                    <option value="delivered">Delivered</option>
+                    <option value="cancelled">Cancelled</option>
+                </select>
+                <select class="service-filter">
+                    <option value="">All Services</option>
+                    <option value="express">Express</option>
+                    <option value="standard">Standard</option>
+                    <option value="economy">Economy</option>
+                </select>
+                <div class="date-filter">
+                    <input type="date" placeholder="From Date">
+                    <input type="date" placeholder="To Date">
+                </div>
+                <button class="filter-btn">Apply Filters</button>
+            </div>
+
+            <!-- Shipments Table -->
+            <div class="table-container">
+                <table class="admin-table shipments-table">
+                    <thead>
+                        <tr>
+                            <th><input type="checkbox" class="select-all"></th>
+                            <th>Tracking Number</th>
+                            <th>Customer</th>
+                            <th>Service Type</th>
+                            <th>Origin</th>
+                            <th>Destination</th>
+                            <th>Status</th>
+                            <th>Created Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox" class="select-shipment"></td>
+                            <td>LT20231015001</td>
+                            <td class="customer-info">
+                                <span class="customer-name">John Smith</span>
+                                <span class="customer-email">john@example.com</span>
+                            </td>
+                            <td><span class="badge service-express">Express</span></td>
+                            <td>New York, USA</td>
+                            <td>London, UK</td>
+                            <td><span class="badge status-in-transit">In Transit</span></td>
+                            <td>2023-10-15</td>
+                            <td class="actions">
+                                <button class="action-btn view" title="View Details">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="action-btn update" title="Update Status">
+                                    <i class="fas fa-sync-alt"></i>
+                                </button>
+                                <button class="action-btn print" title="Print Label">
+                                    <i class="fas fa-print"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <!-- More shipment rows... -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button class="prev-btn" disabled><i class="fas fa-chevron-left"></i></button>
+                <div class="page-numbers">
+                    <button class="active">1</button>
+                    <button>2</button>
+                    <button>3</button>
+                    <span>...</span>
+                    <button>10</button>
+                </div>
+                <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </section>
+
+        <!-- Shipment Status Update Modal -->
+        <div class="modal" id="updateStatusModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>Update Shipment Status</h2>
+                    <button class="close-btn"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="modal-body">
+                    <form class="update-status-form">
+                        <div class="form-group">
+                            <label>Current Location</label>
+                            <input type="text" name="location" placeholder="Enter current location">
+                        </div>
+                        <div class="form-group">
+                            <label>Status</label>
+                            <select name="status">
+                                <option value="processing">Processing</option>
+                                <option value="in_transit">In Transit</option>
+                                <option value="out_for_delivery">Out for Delivery</option>
+                                <option value="delivered">Delivered</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Notes</label>
+                            <textarea name="notes" placeholder="Add status update notes"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button class="cancel-btn">Cancel</button>
+                    <button class="save-btn">Update Status</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Shipment Details Modal -->
+        <div class="modal" id="shipmentDetailsModal">
+            <div class="modal-content modal-lg">
+                <div class="modal-header">
+                    <h2>Shipment Details</h2>
+                    <button class="close-btn"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="modal-body">
+                    <div class="shipment-details">
+                        <div class="details-grid">
+                            <div class="detail-section">
+                                <h3>Shipment Information</h3>
+                                <div class="detail-item">
+                                    <span class="label">Tracking Number:</span>
+                                    <span class="value">LT20231015001</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="label">Service Type:</span>
+                                    <span class="value">Express</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="label">Status:</span>
+                                    <span class="value status-badge in-transit">In Transit</span>
+                                </div>
+                            </div>
+
+                            <div class="detail-section">
+                                <h3>Package Details</h3>
+                                <div class="detail-item">
+                                    <span class="label">Weight:</span>
+                                    <span class="value">5.2 kg</span>
+                                </div>
+                                <div class="detail-item">
+                                    <span class="label">Dimensions:</span>
+                                    <span class="value">30 x 25 x 20 cm</span>
+                                </div>
+                            </div>
+
+                            <div class="detail-section">
+                                <h3>Tracking History</h3>
+                                <div class="tracking-timeline">
+                                    <!-- Timeline items will be dynamically added -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html> 

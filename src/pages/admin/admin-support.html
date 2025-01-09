@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Support Management - LogiTech Solutions Admin">
+    <title>Support Management - LogiTech Admin</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="/admin" class="nav-logo">
+                <img src="/assets/images/logo/logo-dark.svg" alt="LogiTech Admin" class="h-8">
+            </a>
+            <ul class="nav-menu">
+                <li><a href="/admin" class="nav-link">Dashboard</a></li>
+                <li><a href="/admin/users" class="nav-link">Users</a></li>
+                <li><a href="/admin/shipments" class="nav-link">Shipments</a></li>
+                <li><a href="/admin/support" class="nav-link active">Support</a></li>
+                <li><a href="/logout" class="btn btn-primary">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="flex min-h-screen">
+        <aside class="w-64 bg-white shadow-md">
+            <div class="p-4">
+                <nav class="space-y-2">
+                    <a href="/admin/support" class="flex items-center space-x-2 p-2 rounded-md bg-primary text-white">
+                        <i class="fas fa-headset"></i>
+                        <span>Support Tickets</span>
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <main class="flex-1 p-8">
+            <div class="container">
+                <div class="flex justify-between items-center mb-8">
+                    <h1 class="text-2xl font-bold">Support Tickets</h1>
+                    <div class="flex space-x-4">
+                        <button class="btn btn-secondary">
+                            <i class="fas fa-download mr-2"></i>Export
+                        </button>
+                        <button class="btn btn-primary">
+                            <i class="fas fa-plus mr-2"></i>Create Ticket
+                        </button>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                    <div class="card">
+                        <div class="flex items-center space-x-4">
+                            <div class="p-3 bg-red-100 text-red-800 rounded-full">
+                                <i class="fas fa-exclamation-circle"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-sm text-gray-600">Open Tickets</h3>
+                                <p class="text-2xl font-bold">28</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="flex items-center space-x-4">
+                            <div class="p-3 bg-yellow-100 text-yellow-800 rounded-full">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-sm text-gray-600">Pending</h3>
+                                <p class="text-2xl font-bold">15</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="flex items-center space-x-4">
+                            <div class="p-3 bg-green-100 text-green-800 rounded-full">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-sm text-gray-600">Resolved</h3>
+                                <p class="text-2xl font-bold">45</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="flex items-center space-x-4">
+                            <div class="p-3 bg-blue-100 text-blue-800 rounded-full">
+                                <i class="fas fa-stopwatch"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-sm text-gray-600">Avg Response</h3>
+                                <p class="text-2xl font-bold">2.5h</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="flex flex-wrap gap-4 mb-6">
+                        <div class="flex-1 min-w-[200px]">
+                            <input type="text" placeholder="Search tickets..." class="form-input">
+                        </div>
+                        <select class="form-input w-auto">
+                            <option value="">All Priority</option>
+                            <option value="high">High</option>
+                            <option value="medium">Medium</option>
+                            <option value="low">Low</option>
+                        </select>
+                        <select class="form-input w-auto">
+                            <option value="">All Status</option>
+                            <option value="open">Open</option>
+                            <option value="pending">Pending</option>
+                            <option value="resolved">Resolved</option>
+                        </select>
+                    </div>
+
+                    <div class="space-y-4">
+                        <!-- Sample Ticket Card -->
+                        <div class="p-4 bg-white border rounded-lg hover:shadow-md transition-shadow">
+                            <div class="flex justify-between items-start">
+                                <div>
+                                    <div class="flex items-center space-x-2">
+                                        <span class="px-2 py-1 text-xs rounded-full bg-red-100 text-red-800">High Priority</span>
+                                        <span class="text-sm text-gray-500">#TK-2024-001</span>
+                                    </div>
+                                    <h3 class="text-lg font-medium mt-2">Shipment Delay Issue</h3>
+                                    <p class="text-gray-600 mt-1">Customer reporting significant delay in delivery...</p>
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <button class="btn btn-secondary">Assign</button>
+                                    <button class="btn btn-primary">Respond</button>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4 mt-4 text-sm text-gray-500">
+                                <span><i class="fas fa-user mr-1"></i>John Doe</span>
+                                <span><i class="fas fa-clock mr-1"></i>2 hours ago</span>
+                                <span><i class="fas fa-comment mr-1"></i>3 responses</span>
+                            </div>
+                        </div>
+                        <!-- More ticket cards... -->
+                    </div>
+
+                    <div class="flex justify-between items-center mt-6">
+                        <div class="text-gray-500 text-sm">
+                            Showing 1 to 10 of 50 tickets
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="btn btn-secondary">Previous</button>
+                            <button class="btn btn-secondary">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/admin.js"></script>
+</body>
+</html> 

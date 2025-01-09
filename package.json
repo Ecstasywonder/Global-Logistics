@@ -1,0 +1,26 @@
+{
+  "name": "logistics-backend",
+  "version": "1.0.0",
+  "description": "Backend for LogiTech Solutions",
+  "main": "server.js",
+  "scripts": {
+    "start": "serve -s public",
+    "dev": "live-server --port=3000 --entry-file=src/pages/index.html --mount=/css:public/css",
+    "check-paths": "node scripts/check-paths.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-validator": "^7.0.1",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.0.3",
+    "nodemailer": "^6.9.1",
+    "stripe": "^12.0.0"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "serve": "^14.0.0"
+  }
+} 

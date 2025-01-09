@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="User Management - LogiTech Solutions Admin">
+    <title>User Management - LogiTech Admin</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="/admin" class="nav-logo">
+                <img src="/assets/images/logo/logo-dark.svg" alt="LogiTech Admin" class="h-8">
+            </a>
+            <ul class="nav-menu">
+                <li><a href="/admin" class="nav-link">Dashboard</a></li>
+                <li><a href="/admin/users" class="nav-link active">Users</a></li>
+                <li><a href="/admin/shipments" class="nav-link">Shipments</a></li>
+                <li><a href="/admin/support" class="nav-link">Support</a></li>
+                <li><a href="/logout" class="btn btn-primary">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="flex min-h-screen">
+        <aside class="w-64 bg-white shadow-md">
+            <div class="p-4">
+                <nav class="space-y-2">
+                    <a href="/admin/users" class="flex items-center space-x-2 p-2 rounded-md bg-primary text-white">
+                        <i class="fas fa-users"></i>
+                        <span>User Management</span>
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <main class="flex-1 p-8">
+            <div class="container">
+                <div class="flex justify-between items-center mb-8">
+                    <h1 class="text-2xl font-bold">User Management</h1>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-plus mr-2"></i>Add User
+                    </button>
+                </div>
+
+                <div class="card mb-6">
+                    <div class="flex flex-wrap gap-4 mb-4">
+                        <div class="flex-1 min-w-[200px]">
+                            <input type="text" placeholder="Search users..." class="form-input">
+                        </div>
+                        <select class="form-input w-auto">
+                            <option value="">All Roles</option>
+                            <option value="admin">Admin</option>
+                            <option value="user">User</option>
+                        </select>
+                        <select class="form-input w-auto">
+                            <option value="">All Status</option>
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead>
+                                <tr class="text-left bg-gray-50">
+                                    <th class="p-4">
+                                        <input type="checkbox" class="form-checkbox">
+                                    </th>
+                                    <th class="p-4">User</th>
+                                    <th class="p-4">Email</th>
+                                    <th class="p-4">Role</th>
+                                    <th class="p-4">Status</th>
+                                    <th class="p-4">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Sample row -->
+                                <tr class="border-t">
+                                    <td class="p-4">
+                                        <input type="checkbox" class="form-checkbox">
+                                    </td>
+                                    <td class="p-4">
+                                        <div class="flex items-center space-x-3">
+                                            <div class="w-10 h-10 rounded-full bg-gray-200"></div>
+                                            <div>
+                                                <div class="font-medium">John Doe</div>
+                                                <div class="text-sm text-gray-500">Joined Jan 2024</div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td class="p-4">john@example.com</td>
+                                    <td class="p-4">
+                                        <span class="px-2 py-1 text-xs rounded-full bg-blue-100 text-blue-800">Admin</span>
+                                    </td>
+                                    <td class="p-4">
+                                        <span class="px-2 py-1 text-xs rounded-full bg-green-100 text-green-800">Active</span>
+                                    </td>
+                                    <td class="p-4">
+                                        <div class="flex space-x-2">
+                                            <button class="p-2 text-gray-500 hover:text-primary">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="p-2 text-gray-500 hover:text-red-500">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="flex justify-between items-center mt-4">
+                        <div class="text-gray-500 text-sm">
+                            Showing 1 to 10 of 100 entries
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="btn btn-secondary">Previous</button>
+                            <button class="btn btn-secondary">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/admin.js"></script>
+</body>
+</html> 

@@ -1,0 +1,9 @@
+<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <style>
+        .pattern { fill: #ffffff; opacity: 0.1; }
+    </style>
+    <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
+        <path class="pattern" d="M0,0 L10,0 L10,10 L0,10 Z"/>
+    </pattern>
+    <rect width="100" height="100" fill="url(#grid)"/>
+</svg> 

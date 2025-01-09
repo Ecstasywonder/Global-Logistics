@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LogiTech Solutions - Customer Dashboard for shipment tracking and account management">
+    <title>Dashboard - LogiTech Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="dashboard-body">
+    <!-- Dashboard Navigation -->
+    <nav class="dashboard-nav">
+        <div class="logo">
+            <img src="assets/logo.png" alt="LogiTech Solutions">
+        </div>
+        <div class="nav-right">
+            <div class="search-bar">
+                <input type="text" placeholder="Search shipments...">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="user-menu">
+                <img src="assets/user-avatar.jpg" alt="User" class="avatar">
+                <div class="dropdown-menu">
+                    <a href="#profile"><i class="fas fa-user"></i> Profile</a>
+                    <a href="#settings"><i class="fas fa-cog"></i> Settings</a>
+                    <a href="login.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard Layout -->
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <ul class="sidebar-menu">
+                <li class="active">
+                    <a href="#overview"><i class="fas fa-home"></i> Overview</a>
+                </li>
+                <li>
+                    <a href="#shipments"><i class="fas fa-boxes"></i> Shipments</a>
+                </li>
+                <li>
+                    <a href="#tracking"><i class="fas fa-map-marker-alt"></i> Track</a>
+                </li>
+                <li>
+                    <a href="#quotes"><i class="fas fa-calculator"></i> Get Quote</a>
+                </li>
+                <li>
+                    <a href="#documents"><i class="fas fa-file-alt"></i> Documents</a>
+                </li>
+                <li>
+                    <a href="#billing"><i class="fas fa-credit-card"></i> Billing</a>
+                </li>
+                <li>
+                    <a href="#support"><i class="fas fa-headset"></i> Support</a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <!-- Overview Section -->
+            <section class="dashboard-overview">
+                <h1>Welcome back, John!</h1>
+                
+                <!-- Quick Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon active">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Active Shipments</h3>
+                            <p>5</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon delivered">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Delivered</h3>
+                            <p>28</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon pending">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Pending</h3>
+                            <p>3</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon quotes">
+                            <i class="fas fa-file-invoice-dollar"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Quote Requests</h3>
+                            <p>2</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Shipments -->
+                <div class="recent-shipments">
+                    <div class="section-header">
+                        <h2>Recent Shipments</h2>
+                        <a href="#all-shipments" class="view-all">View All</a>
+                    </div>
+                    <div class="shipment-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Tracking ID</th>
+                                    <th>Origin</th>
+                                    <th>Destination</th>
+                                    <th>Status</th>
+                                    <th>Est. Delivery</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>#LT789456</td>
+                                    <td>New York, USA</td>
+                                    <td>London, UK</td>
+                                    <td><span class="status in-transit">In Transit</span></td>
+                                    <td>Oct 25, 2023</td>
+                                    <td><a href="#track" class="track-btn">Track</a></td>
+                                </tr>
+                                <tr>
+                                    <td>#LT789457</td>
+                                    <td>Paris, FR</td>
+                                    <td>Berlin, DE</td>
+                                    <td><span class="status delivered">Delivered</span></td>
+                                    <td>Oct 22, 2023</td>
+                                    <td><a href="#details" class="details-btn">Details</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="quick-actions">
+                    <div class="section-header">
+                        <h2>Quick Actions</h2>
+                    </div>
+                    <div class="actions-grid">
+                        <a href="#new-shipment" class="action-card">
+                            <i class="fas fa-plus"></i>
+                            <h3>New Shipment</h3>
+                            <p>Create a new shipment request</p>
+                        </a>
+                        <a href="#track-shipment" class="action-card">
+                            <i class="fas fa-search"></i>
+                            <h3>Track Shipment</h3>
+                            <p>Track your existing shipments</p>
+                        </a>
+                        <a href="#get-quote" class="action-card">
+                            <i class="fas fa-calculator"></i>
+                            <h3>Get Quote</h3>
+                            <p>Calculate shipping costs</p>
+                        </a>
+                        <a href="#support" class="action-card">
+                            <i class="fas fa-headset"></i>
+                            <h3>Support</h3>
+                            <p>Get help with your shipments</p>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html> 

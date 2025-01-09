@@ -1,0 +1,6 @@
+<svg width="64" height="64" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+    <style>.icon-stroke { stroke: #3498db; stroke-width: 2; fill: none; }</style>
+    <path class="icon-stroke" d="M8,48 L8,16 L40,16 L40,48 Z M40,32 L56,32 L56,48 L40,48 Z M0,48 L64,48"/>
+    <circle class="icon-stroke" cx="16" cy="48" r="4"/>
+    <circle class="icon-stroke" cx="48" cy="48" r="4"/>
+</svg> 

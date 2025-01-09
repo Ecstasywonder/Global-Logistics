@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manage your shipments with LogiTech Solutions">
+    <title>Shipments - LogiTech Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="dashboard-body">
+    <!-- Dashboard Navigation -->
+    <nav class="dashboard-nav">
+        <!-- Same navigation content as dashboard.html -->
+    </nav>
+
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <aside class="dashboard-sidebar">
+            <!-- Same sidebar content as dashboard.html -->
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <section class="shipments-section">
+                <div class="section-header">
+                    <h1>My Shipments</h1>
+                    <button class="new-shipment-btn">
+                        <i class="fas fa-plus"></i> New Shipment
+                    </button>
+                </div>
+
+                <!-- Shipment Filters -->
+                <div class="shipment-filters">
+                    <div class="filter-group">
+                        <select>
+                            <option value="all">All Status</option>
+                            <option value="in-transit">In Transit</option>
+                            <option value="delivered">Delivered</option>
+                            <option value="pending">Pending</option>
+                        </select>
+                        <select>
+                            <option value="all">All Services</option>
+                            <option value="air">Air Freight</option>
+                            <option value="sea">Sea Freight</option>
+                            <option value="land">Land Transport</option>
+                        </select>
+                        <input type="date" placeholder="From Date">
+                        <input type="date" placeholder="To Date">
+                    </div>
+                    <div class="search-group">
+                        <input type="text" placeholder="Search shipments...">
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+
+                <!-- Shipments Table -->
+                <div class="shipments-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>
+                                    <input type="checkbox" class="select-all">
+                                </th>
+                                <th>Tracking ID</th>
+                                <th>Service Type</th>
+                                <th>Origin</th>
+                                <th>Destination</th>
+                                <th>Status</th>
+                                <th>Created Date</th>
+                                <th>Est. Delivery</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>#LT789456</td>
+                                <td>Air Freight</td>
+                                <td>New York, USA</td>
+                                <td>London, UK</td>
+                                <td><span class="status in-transit">In Transit</span></td>
+                                <td>Oct 20, 2023</td>
+                                <td>Oct 25, 2023</td>
+                                <td class="actions">
+                                    <button class="action-btn track"><i class="fas fa-map-marker-alt"></i></button>
+                                    <button class="action-btn edit"><i class="fas fa-edit"></i></button>
+                                    <button class="action-btn delete"><i class="fas fa-trash"></i></button>
+                                </td>
+                            </tr>
+                            <!-- Add more shipment rows -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="pagination">
+                    <button class="prev-btn" disabled><i class="fas fa-chevron-left"></i></button>
+                    <div class="page-numbers">
+                        <button class="active">1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <span>...</span>
+                        <button>10</button>
+                    </div>
+                    <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+
+                <!-- Bulk Actions -->
+                <div class="bulk-actions">
+                    <select>
+                        <option value="">Bulk Actions</option>
+                        <option value="export">Export Selected</option>
+                        <option value="print">Print Labels</option>
+                        <option value="delete">Delete Selected</option>
+                    </select>
+                    <button class="apply-btn">Apply</button>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shipments Management - LogiTech Solutions Admin">
+    <title>Shipments Management - LogiTech Admin</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-50">
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="/admin" class="nav-logo">
+                <img src="/assets/images/logo/logo-dark.svg" alt="LogiTech Admin" class="h-8">
+            </a>
+            <ul class="nav-menu">
+                <li><a href="/admin" class="nav-link">Dashboard</a></li>
+                <li><a href="/admin/users" class="nav-link">Users</a></li>
+                <li><a href="/admin/shipments" class="nav-link active">Shipments</a></li>
+                <li><a href="/admin/support" class="nav-link">Support</a></li>
+                <li><a href="/logout" class="btn btn-primary">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="flex min-h-screen">
+        <aside class="w-64 bg-white shadow-md">
+            <div class="p-4">
+                <nav class="space-y-2">
+                    <a href="/admin/shipments" class="flex items-center space-x-2 p-2 rounded-md bg-primary text-white">
+                        <i class="fas fa-shipping-fast"></i>
+                        <span>Shipments</span>
+                    </a>
+                </nav>
+            </div>
+        </aside>
+
+        <main class="flex-1 p-8">
+            <div class="container">
+                <div class="flex justify-between items-center mb-8">
+                    <h1 class="text-2xl font-bold">Shipments Management</h1>
+                    <button class="btn btn-primary">
+                        <i class="fas fa-plus mr-2"></i>Create Shipment
+                    </button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+                    <div class="card">
+                        <div class="flex items-center space-x-4">
+                            <div class="p-3 bg-blue-100 text-blue-800 rounded-full">
+                                <i class="fas fa-box"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-sm text-gray-600">Pending</h3>
+                                <p class="text-2xl font-bold">45</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Add more stat cards -->
+                </div>
+
+                <div class="card">
+                    <div class="flex flex-wrap gap-4 mb-6">
+                        <div class="flex-1 min-w-[200px]">
+                            <input type="text" placeholder="Search by tracking number..." class="form-input">
+                        </div>
+                        <select class="form-input w-auto">
+                            <option value="">All Status</option>
+                            <option value="pending">Pending</option>
+                            <option value="in_transit">In Transit</option>
+                            <option value="delivered">Delivered</option>
+                        </select>
+                        <button class="btn btn-secondary">
+                            <i class="fas fa-filter mr-2"></i>Filter
+                        </button>
+                    </div>
+
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead>
+                                <tr class="text-left bg-gray-50">
+                                    <th class="p-4">Tracking No.</th>
+                                    <th class="p-4">Customer</th>
+                                    <th class="p-4">Origin</th>
+                                    <th class="p-4">Destination</th>
+                                    <th class="p-4">Status</th>
+                                    <th class="p-4">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Sample shipment row -->
+                                <tr class="border-t">
+                                    <td class="p-4 font-medium">LT20240115001</td>
+                                    <td class="p-4">John Doe</td>
+                                    <td class="p-4">New York, USA</td>
+                                    <td class="p-4">London, UK</td>
+                                    <td class="p-4">
+                                        <span class="px-2 py-1 text-xs rounded-full bg-yellow-100 text-yellow-800">
+                                            In Transit
+                                        </span>
+                                    </td>
+                                    <td class="p-4">
+                                        <div class="flex space-x-2">
+                                            <button class="p-2 text-gray-500 hover:text-primary">
+                                                <i class="fas fa-eye"></i>
+                                            </button>
+                                            <button class="p-2 text-gray-500 hover:text-primary">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="p-2 text-gray-500 hover:text-primary">
+                                                <i class="fas fa-print"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="flex justify-between items-center mt-4">
+                        <div class="text-gray-500 text-sm">
+                            Showing 1 to 10 of 100 entries
+                        </div>
+                        <div class="flex space-x-2">
+                            <button class="btn btn-secondary">Previous</button>
+                            <button class="btn btn-secondary">Next</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/admin.js"></script>
+</body>
+</html> 

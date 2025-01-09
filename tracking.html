@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Track your shipments with LogiTech Solutions">
+    <title>Track Shipments - LogiTech Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="dashboard-body">
+    <!-- Dashboard Navigation (Same as dashboard.html) -->
+    <nav class="dashboard-nav">
+        <!-- Same navigation content -->
+    </nav>
+
+    <div class="dashboard-container">
+        <!-- Sidebar (Same as dashboard.html) -->
+        <aside class="dashboard-sidebar">
+            <!-- Same sidebar content -->
+        </aside>
+
+        <!-- Main Content -->
+        <main class="dashboard-main">
+            <section class="tracking-section">
+                <h1>Track Shipments</h1>
+
+                <!-- Tracking Search -->
+                <div class="tracking-search">
+                    <form class="track-form">
+                        <div class="search-group">
+                            <input type="text" placeholder="Enter tracking number">
+                            <button type="submit">Track</button>
+                        </div>
+                        <div class="bulk-tracking">
+                            <a href="#" class="bulk-track-btn">Bulk Tracking</a>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Shipment Status -->
+                <div class="shipment-status">
+                    <div class="status-header">
+                        <h2>Tracking Details - #LT789456</h2>
+                        <span class="status-badge in-transit">In Transit</span>
+                    </div>
+
+                    <!-- Progress Timeline -->
+                    <div class="progress-timeline">
+                        <div class="timeline-step completed">
+                            <div class="step-icon">
+                                <i class="fas fa-box"></i>
+                            </div>
+                            <div class="step-info">
+                                <h4>Order Received</h4>
+                                <p>Oct 20, 2023 - 09:30 AM</p>
+                                <span>New York, USA</span>
+                            </div>
+                        </div>
+                        <div class="timeline-step completed">
+                            <div class="step-icon">
+                                <i class="fas fa-warehouse"></i>
+                            </div>
+                            <div class="step-info">
+                                <h4>Processing at Facility</h4>
+                                <p>Oct 21, 2023 - 02:15 PM</p>
+                                <span>JFK Airport, NY</span>
+                            </div>
+                        </div>
+                        <div class="timeline-step active">
+                            <div class="step-icon">
+                                <i class="fas fa-plane"></i>
+                            </div>
+                            <div class="step-info">
+                                <h4>In Transit</h4>
+                                <p>Oct 22, 2023 - 11:45 AM</p>
+                                <span>International Shipment</span>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="step-icon">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <div class="step-info">
+                                <h4>Out for Delivery</h4>
+                                <p>Pending</p>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="step-icon">
+                                <i class="fas fa-flag-checkered"></i>
+                            </div>
+                            <div class="step-info">
+                                <h4>Delivered</h4>
+                                <p>Expected: Oct 25, 2023</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Shipment Details -->
+                    <div class="shipment-details">
+                        <div class="details-grid">
+                            <div class="detail-card">
+                                <h3>Shipment Information</h3>
+                                <ul>
+                                    <li><span>Service Type:</span> Express Air Freight</li>
+                                    <li><span>Weight:</span> 25 kg</li>
+                                    <li><span>Dimensions:</span> 60x40x30 cm</li>
+                                    <li><span>Pieces:</span> 2</li>
+                                </ul>
+                            </div>
+                            <div class="detail-card">
+                                <h3>Origin</h3>
+                                <ul>
+                                    <li><span>Address:</span> 123 Business Ave</li>
+                                    <li><span>City:</span> New York</li>
+                                    <li><span>Country:</span> USA</li>
+                                    <li><span>Postal Code:</span> 10001</li>
+                                </ul>
+                            </div>
+                            <div class="detail-card">
+                                <h3>Destination</h3>
+                                <ul>
+                                    <li><span>Address:</span> 45 Commerce St</li>
+                                    <li><span>City:</span> London</li>
+                                    <li><span>Country:</span> UK</li>
+                                    <li><span>Postal Code:</span> EC1A 1BB</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Map View -->
+                    <div class="shipment-map">
+                        <h3>Live Tracking Map</h3>
+                        <div class="map-container">
+                            <!-- Embed map here -->
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d..." 
+                                    width="100%" 
+                                    height="400" 
+                                    style="border:0;" 
+                                    allowfullscreen="" 
+                                    loading="lazy">
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html> 

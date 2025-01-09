@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LogiTech Solutions Admin Dashboard">
+    <title>Admin Dashboard - LogiTech Solutions</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body class="admin-body">
+    <nav class="admin-nav">
+        <div class="logo">
+            <i class="fas fa-shipping-fast"></i>
+            <span>LogiTech Admin</span>
+        </div>
+        <div class="admin-user">
+            <span class="admin-name">Admin User</span>
+            <button class="logout-btn"><i class="fas fa-sign-out-alt"></i></button>
+        </div>
+    </nav>
+
+    <div class="admin-container">
+        <aside class="admin-sidebar">
+            <ul class="admin-menu">
+                <li class="active">
+                    <a href="#dashboard"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+                </li>
+                <li>
+                    <a href="#users"><i class="fas fa-users"></i> User Management</a>
+                </li>
+                <li>
+                    <a href="#shipments"><i class="fas fa-boxes"></i> Shipments</a>
+                </li>
+                <li>
+                    <a href="#support"><i class="fas fa-headset"></i> Support Tickets</a>
+                </li>
+                <li>
+                    <a href="#reports"><i class="fas fa-chart-bar"></i> Reports</a>
+                </li>
+                <li>
+                    <a href="#settings"><i class="fas fa-cog"></i> Settings</a>
+                </li>
+            </ul>
+        </aside>
+
+        <main class="admin-main">
+            <section class="dashboard-overview">
+                <h1>Dashboard Overview</h1>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon pending">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Pending Shipments</h3>
+                            <p class="stat-number">24</p>
+                            <span class="stat-change increase">+12% from last week</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon active">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Active Shipments</h3>
+                            <p class="stat-number">156</p>
+                            <span class="stat-change increase">+8% from last week</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon users">
+                            <i class="fas fa-user-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Pending Verifications</h3>
+                            <p class="stat-number">18</p>
+                            <span class="stat-change decrease">-5% from last week</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon support">
+                            <i class="fas fa-ticket-alt"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Open Tickets</h3>
+                            <p class="stat-number">32</p>
+                            <span class="stat-change increase">+15% from last week</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="admin-sections">
+                    <!-- Pending Verifications Section -->
+                    <div class="admin-section">
+                        <div class="section-header">
+                            <h2>Pending User Verifications</h2>
+                            <button class="view-all-btn">View All</button>
+                        </div>
+                        <div class="table-container">
+                            <table class="admin-table">
+                                <thead>
+                                    <tr>
+                                        <th>User</th>
+                                        <th>Email</th>
+                                        <th>Registration Date</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>John Smith</td>
+                                        <td>john@example.com</td>
+                                        <td>2023-10-15</td>
+                                        <td>
+                                            <button class="verify-btn">Verify</button>
+                                            <button class="reject-btn">Reject</button>
+                                        </td>
+                                    </tr>
+                                    <!-- More rows... -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Recent Support Tickets -->
+                    <div class="admin-section">
+                        <div class="section-header">
+                            <h2>Recent Support Tickets</h2>
+                            <button class="view-all-btn">View All</button>
+                        </div>
+                        <div class="tickets-container">
+                            <div class="ticket-card">
+                                <div class="ticket-priority high">High</div>
+                                <h3>Shipment Delay Issue</h3>
+                                <p>Customer reporting significant delay in delivery...</p>
+                                <div class="ticket-meta">
+                                    <span><i class="fas fa-user"></i> Jane Doe</span>
+                                    <span><i class="fas fa-clock"></i> 2 hours ago</span>
+                                </div>
+                                <button class="handle-ticket-btn">Handle Ticket</button>
+                            </div>
+                            <!-- More ticket cards... -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+</html> 
