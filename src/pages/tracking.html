@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Track your shipment - LogiTech Solutions">
+    <title>Track Shipment - LogiTech Solutions</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="/" class="nav-logo">
+                <img src="/assets/images/logo/logo-dark.svg" alt="LogiTech Solutions">
+            </a>
+            <ul class="nav-menu">
+                <li><a href="/" class="nav-link">Home</a></li>
+                <li><a href="/services" class="nav-link">Services</a></li>
+                <li><a href="/tracking" class="nav-link active">Track</a></li>
+                <li><a href="/contact" class="nav-link">Contact</a></li>
+                <li><a href="/login" class="nav-link">Login</a></li>
+                <li><a href="/register" class="btn btn-primary">Get Started</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="tracking-page">
+        <section class="tracking-hero">
+            <div class="container">
+                <h1>Track Your Shipment</h1>
+                <div class="tracking-search">
+                    <form id="trackingForm" class="tracking-form">
+                        <div class="form-group">
+                            <input type="text" class="form-input" placeholder="Enter tracking number" required>
+                            <button type="submit" class="btn btn-primary">Track Now</button>
+                        </div>
+                        <p class="tracking-hint">Example: LT123456789</p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section class="tracking-result hidden">
+            <div class="container">
+                <div class="tracking-header">
+                    <div class="tracking-info">
+                        <h2>Tracking Number: <span id="trackingNumber">LT123456789</span></h2>
+                        <p class="status">Status: <span class="badge badge-success">In Transit</span></p>
+                    </div>
+                    <div class="tracking-actions">
+                        <button class="btn btn-outline"><i class="fas fa-print"></i> Print</button>
+                        <button class="btn btn-outline"><i class="fas fa-share"></i> Share</button>
+                    </div>
+                </div>
+
+                <div class="tracking-timeline">
+                    <div class="timeline-event completed">
+                        <div class="event-icon">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <div class="event-content">
+                            <h3>Package Received</h3>
+                            <p class="event-location">New York, USA</p>
+                            <p class="event-time">Monday, Jan 15, 2024 - 09:30 AM</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-event completed">
+                        <div class="event-icon">
+                            <i class="fas fa-warehouse"></i>
+                        </div>
+                        <div class="event-content">
+                            <h3>Arrived at Sort Facility</h3>
+                            <p class="event-location">New York, USA</p>
+                            <p class="event-time">Monday, Jan 15, 2024 - 02:15 PM</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-event active">
+                        <div class="event-icon">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                        <div class="event-content">
+                            <h3>In Transit</h3>
+                            <p class="event-location">En Route to London, UK</p>
+                            <p class="event-time">Monday, Jan 15, 2024 - 08:45 PM</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-event">
+                        <div class="event-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <div class="event-content">
+                            <h3>Out for Delivery</h3>
+                            <p class="event-location">London, UK</p>
+                            <p class="event-time">Pending</p>
+                        </div>
+                    </div>
+
+                    <div class="timeline-event">
+                        <div class="event-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="event-content">
+                            <h3>Delivered</h3>
+                            <p class="event-location">London, UK</p>
+                            <p class="event-time">Pending</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tracking-details">
+                    <h3>Shipment Details</h3>
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <span class="detail-label">Service Type</span>
+                            <span class="detail-value">Express Air Freight</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Expected Delivery</span>
+                            <span class="detail-value">Jan 17, 2024</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Origin</span>
+                            <span class="detail-value">New York, USA</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Destination</span>
+                            <span class="detail-value">London, UK</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <!-- Same footer content as index.html -->
+    </footer>
+
+    <script src="/js/tracking.js"></script>
+</body>
+</html> 

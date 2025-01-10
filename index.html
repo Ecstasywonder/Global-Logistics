@@ -3,146 +3,91 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="LogiTech Solutions - Your trusted logistics partner for land, sea, and air freight services">
-    <meta name="keywords" content="logistics, freight, shipping, transportation, supply chain">
-    <title>LogiTech Solutions - Leading Logistics Provider</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="LogiTech Solutions - Your Trusted Logistics Partner">
+    <title>LogiTech Solutions</title>
+    <link rel="stylesheet" href="/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <!-- Open Graph tags for social sharing -->
-    <meta property="og:title" content="LogiTech Solutions - Leading Logistics Provider">
-    <meta property="og:description" content="Your trusted logistics partner for land, sea, and air freight services">
-    <meta property="og:image" content="assets/og-image.jpg">
-    <meta property="og:url" content="https://www.logitechsolutions.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    
-    <!-- Navigation -->
     <nav class="navbar">
-        <div class="logo">
-            <img src="assets/logo.png" alt="LogiTech Solutions">
+        <div class="container navbar-container">
+            <a href="/" class="nav-logo">
+                <img src="/assets/images/logo/logo-dark.svg" alt="LogiTech Solutions" class="h-8">
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#" class="nav-link">Home</a></li>
+                <li><a href="/services.html" class="nav-link">Features</a></li>
+                <li><a href="/testimonials" class="nav-link">Testimonials</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><a href="#login" class="nav-link">Login</a></li>
+                <li><a href="#register" class="btn btn-primary">Register</a></li>
+            </ul>
         </div>
-        <ul class="nav-links">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="team.html">Our Team</a></li>
-            <li><a href="contact.html">Contact</a></li>
-            <li><a href="login.html" class="login-btn">Sign In</a></li>
-        </ul>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Your Trusted Logistics Partner</h1>
-            <p>Delivering excellence across land, sea, and air</p>
-            <div class="hero-btns">
-                <a href="#track" class="track-btn">Track Package</a>
-                <a href="#contact" class="contact-btn">Get Quote</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about-preview">
-        <h2>Who We Are</h2>
-        <p>Leading logistics solutions provider with comprehensive services in transportation and freight management.</p>
-        <div class="service-highlights">
-            <div class="highlight">
-                <i class="fas fa-truck"></i>
-                <h3>Land Transport</h3>
-            </div>
-            <div class="highlight">
-                <i class="fas fa-plane"></i>
-                <h3>Air Freight</h3>
-            </div>
-            <div class="highlight">
-                <i class="fas fa-ship"></i>
-                <h3>Sea Haulage</h3>
-            </div>
-        </div>
-    </section>
-
-    <!-- Testimonials -->
-    <section class="testimonials">
-        <h2>What Our Clients Say</h2>
-        <div class="testimonial-slider">
-            <div class="testimonial">
-                <p>"Exceptional service and reliable delivery times."</p>
-                <div class="client">- John Smith, CEO</div>
-            </div>
-            <!-- Add more testimonials -->
-        </div>
-    </section>
-
-    <!-- Trust Badges -->
-    <section class="trust-badges">
-        <h2>Our Partners & Certifications</h2>
-        <div class="badge-container">
-            <img src="assets/badge1.png" alt="Certification 1">
-            <img src="assets/badge2.png" alt="Certification 2">
-            <img src="assets/badge3.png" alt="Certification 3">
-        </div>
-    </section>
-
-    <!-- Subscription & Contact -->
-    <section class="contact-section" id="contact">
-        <div class="subscription">
-            <h2>Stay Updated</h2>
-            <form class="subscribe-form">
-                <input type="email" placeholder="Enter your email">
-                <button type="submit">Subscribe</button>
-            </form>
-        </div>
-        <div class="contact-form">
-            <h2>Contact Us</h2>
-            <form>
-                <input type="text" placeholder="Your Name">
-                <input type="email" placeholder="Your Email">
-                <select>
-                    <option value="">Select Service</option>
-                    <option value="land">Land Transportation</option>
-                    <option value="air">Air Freight</option>
-                    <option value="sea">Sea Haulage</option>
-                    <option value="rental">Vehicle Rental</option>
-                </select>
-                <textarea placeholder="Your Message"></textarea>
-                <button type="submit">Send Message</button>
-            </form>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Quick Links</h3>
-                <ul>
-                    <li><a href="tracking.html">Track Package</a></li>
-                    <li><a href="services.html">Our Services</a></li>
-                    <li><a href="locations.html">Locations</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Contact Info</h3>
-                <p>Email: info@logitech.com</p>
-                <p>Phone: +1 234 567 8900</p>
-                <p>Address: 123 Logistics Ave, City</p>
-            </div>
-            <div class="footer-section">
-                <h3>Follow Us</h3>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
+    <main>
+        <section class="hero bg-gradient-to-r from-primary to-primary-dark text-white">
+            <div class="container grid min-h-[80vh] items-center text-center">
+                <div class="max-w-3xl mx-auto">
+                    <h1 class="mb-4">Your Trusted Logistics Partner</h1>
+                    <p class="text-xl mb-8">Efficient, reliable, and secure shipping solutions for your business</p>
+                    <a href="#contact" class="btn btn-primary bg-white text-primary hover:bg-gray-100">Get Started</a>
                 </div>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2023 LogiTech Solutions. All rights reserved.</p>
+        </section>
+
+        <section id="features" class="py-20">
+            <div class="container">
+                <h2 class="text-center mb-12">Why Choose Us</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="card hover:shadow-lg transition-shadow">
+                        <i class="fas fa-truck text-4xl text-primary mb-4"></i>
+                        <h3 class="text-xl mb-2">Fast Delivery</h3>
+                        <p class="text-gray-600">Quick and efficient delivery services across the globe</p>
+                    </div>
+                    <!-- Add more feature cards -->
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="bg-gray-50 py-20">
+            <div class="container">
+                <div class="max-w-2xl mx-auto">
+                    <h2 class="text-center mb-12">Contact Us</h2>
+                    <form class="card">
+                        <div class="form-group">
+                            <label class="form-label">Name</label>
+                            <input type="text" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-input" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Message</label>
+                            <textarea class="form-input" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-full">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl mb-4">About Us</h3>
+                    <p class="text-gray-400">LogiTech Solutions - Your trusted partner in logistics and shipping solutions.</p>
+                </div>
+                <!-- Add more footer sections -->
+            </div>
+            <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 LogiTech Solutions. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 </body>
-</html>
+</html> 

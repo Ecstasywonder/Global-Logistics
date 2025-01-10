@@ -1,123 +1,166 @@
+const crypto = require('crypto');
+const ErrorResponse = require('../utils/errorResponse');
+const asyncHandler = require('../middleware/asyncHandler');
 const User = require('../models/User');
-const jwt = require('jsonwebtoken');
-const { validationResult } = require('express-validator');
-const bcrypt = require('bcryptjs');
-
-// Generate JWT Token
-const generateToken = (id) => {
-    return jwt.sign({ id }, process.env.JWT_SECRET, {
-        expiresIn: process.env.JWT_EXPIRE
-    });
-};
+const sendEmail = require('../utils/sendEmail');
 
 // @desc    Register user
 // @route   POST /api/auth/register
 // @access  Public
-exports.register = async (req, res) => {
+exports.register = asyncHandler(async (req, res, next) => {
+    const { firstName, lastName, email, password, company } = req.body;
+
+    // Create user
+    const user = await User.create({
+        firstName,
+        lastName,
+        email,
+        password,
+        company
+    });
+
+    // Create verification token
+    const verificationToken = user.getVerificationToken();
+    await user.save();
+
+    // Create verification url
+    const verificationUrl = `${req.protocol}://${req.get('host')}/api/auth/verify/${verificationToken}`;
+
+    // Send email
     try {
-        // Check for validation errors
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) {
-            return res.status(400).json({
-                success: false,
-                message: errors.array()[0].msg
-            });
-        }
-
-        const { firstName, lastName, email, phone, company, password } = req.body;
-
-        // Check if user already exists
-        let user = await User.findOne({ email });
-        if (user) {
-            return res.status(400).json({
-                success: false,
-                message: 'User already exists'
-            });
-        }
-
-        // Create new user
-        user = new User({
-            firstName,
-            lastName,
-            email,
-            phone,
-            company,
-            password
+        await sendEmail({
+            email: user.email,
+            subject: 'Email Verification',
+            template: 'verification',
+            data: {
+                name: user.firstName,
+                url: verificationUrl
+            }
         });
 
-        // Hash password
-        const salt = await bcrypt.genSalt(10);
-        user.password = await bcrypt.hash(password, salt);
-
-        // Save user
+        sendTokenResponse(user, 201, res);
+    } catch (err) {
+        user.verificationToken = undefined;
+        user.verificationExpire = undefined;
         await user.save();
 
-        // Create JWT token
-        const payload = {
-            user: {
-                id: user.id
-            }
-        };
-
-        jwt.sign(
-            payload,
-            process.env.JWT_SECRET,
-            { expiresIn: process.env.JWT_EXPIRE },
-            (err, token) => {
-                if (err) throw err;
-                res.status(201).json({
-                    success: true,
-                    message: 'Registration successful',
-                    token
-                });
-            }
-        );
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({
-            success: false,
-            message: 'Server error'
-        });
+        return next(new ErrorResponse('Email could not be sent', 500));
     }
-};
+});
 
 // @desc    Login user
 // @route   POST /api/auth/login
 // @access  Public
-exports.login = async (req, res, next) => {
+exports.login = asyncHandler(async (req, res, next) => {
+    const { email, password } = req.body;
+
+    // Validate email & password
+    if (!email || !password) {
+        return next(new ErrorResponse('Please provide an email and password', 400));
+    }
+
+    // Check for user
+    const user = await User.findOne({ email }).select('+password');
+    if (!user) {
+        return next(new ErrorResponse('Invalid credentials', 401));
+    }
+
+    // Check if password matches
+    const isMatch = await user.matchPassword(password);
+    if (!isMatch) {
+        return next(new ErrorResponse('Invalid credentials', 401));
+    }
+
+    // Check if email is verified
+    if (!user.isVerified) {
+        return next(new ErrorResponse('Please verify your email address', 401));
+    }
+
+    sendTokenResponse(user, 200, res);
+});
+
+// @desc    Verify email
+// @route   GET /api/auth/verify/:token
+// @access  Public
+exports.verifyEmail = asyncHandler(async (req, res, next) => {
+    const verificationToken = crypto
+        .createHash('sha256')
+        .update(req.params.token)
+        .digest('hex');
+
+    const user = await User.findOne({
+        verificationToken,
+        verificationExpire: { $gt: Date.now() }
+    });
+
+    if (!user) {
+        return next(new ErrorResponse('Invalid token', 400));
+    }
+
+    // Set verified
+    user.isVerified = true;
+    user.verificationToken = undefined;
+    user.verificationExpire = undefined;
+    await user.save();
+
+    sendTokenResponse(user, 200, res);
+});
+
+// @desc    Forgot password
+// @route   POST /api/auth/forgotpassword
+// @access  Public
+exports.forgotPassword = asyncHandler(async (req, res, next) => {
+    const user = await User.findOne({ email: req.body.email });
+
+    if (!user) {
+        return next(new ErrorResponse('There is no user with that email', 404));
+    }
+
+    // Get reset token
+    const resetToken = user.getResetPasswordToken();
+    await user.save();
+
+    // Create reset url
+    const resetUrl = `${req.protocol}://${req.get('host')}/api/auth/resetpassword/${resetToken}`;
+
     try {
-        const { email, password } = req.body;
+        await sendEmail({
+            email: user.email,
+            subject: 'Password Reset',
+            template: 'resetPassword',
+            data: {
+                name: user.firstName,
+                url: resetUrl
+            }
+        });
 
-        // Validate email & password
-        if (!email || !password) {
-            return res.status(400).json({
-                success: false,
-                message: 'Please provide email and password'
-            });
-        }
+        res.status(200).json({ success: true, data: 'Email sent' });
+    } catch (err) {
+        user.resetPasswordToken = undefined;
+        user.resetPasswordExpire = undefined;
+        await user.save();
 
-        // Check for user
-        const user = await User.findOne({ email }).select('+password');
-        if (!user) {
-            return res.status(401).json({
-                success: false,
-                message: 'Invalid credentials'
-            });
-        }
+        return next(new ErrorResponse('Email could not be sent', 500));
+    }
+});
 
-        // Check password
-        const isMatch = await user.matchPassword(password);
-        if (!isMatch) {
-            return res.status(401).json({
-                success: false,
-                message: 'Invalid credentials'
-            });
-        }
+// Helper function to get token from model, create cookie and send response
+const sendTokenResponse = (user, statusCode, res) => {
+    const token = user.getSignedJwtToken();
 
-        // Generate token
-        const token = generateToken(user._id);
+    const options = {
+        expires: new Date(Date.now() + process.env.JWT_COOKIE_EXPIRE * 24 * 60 * 60 * 1000),
+        httpOnly: true
+    };
 
-        res.status(200).json({
+    if (process.env.NODE_ENV === 'production') {
+        options.secure = true;
+    }
+
+    res
+        .status(statusCode)
+        .cookie('token', token, options)
+        .json({
             success: true,
             token,
             user: {
@@ -128,83 +171,4 @@ exports.login = async (req, res, next) => {
                 role: user.role
             }
         });
-    } catch (error) {
-        next(error);
-    }
-};
-
-// @desc    Get current logged in user
-// @route   GET /api/auth/me
-// @access  Private
-exports.getMe = async (req, res, next) => {
-    try {
-        const user = await User.findById(req.user.id);
-
-        res.status(200).json({
-            success: true,
-            data: user
-        });
-    } catch (error) {
-        next(error);
-    }
-};
-
-// @desc    Update user profile
-// @route   PUT /api/auth/updateprofile
-// @access  Private
-exports.updateProfile = async (req, res, next) => {
-    try {
-        const fieldsToUpdate = {
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            email: req.body.email,
-            phone: req.body.phone,
-            company: req.body.company,
-            address: req.body.address
-        };
-
-        const user = await User.findByIdAndUpdate(
-            req.user.id,
-            fieldsToUpdate,
-            {
-                new: true,
-                runValidators: true
-            }
-        );
-
-        res.status(200).json({
-            success: true,
-            data: user
-        });
-    } catch (error) {
-        next(error);
-    }
-};
-
-// @desc    Change password
-// @route   PUT /api/auth/changepassword
-// @access  Private
-exports.changePassword = async (req, res, next) => {
-    try {
-        const user = await User.findById(req.user.id).select('+password');
-
-        // Check current password
-        const isMatch = await user.matchPassword(req.body.currentPassword);
-        if (!isMatch) {
-            return res.status(401).json({
-                success: false,
-                message: 'Current password is incorrect'
-            });
-        }
-
-        user.password = req.body.newPassword;
-        await user.save();
-
-        res.status(200).json({
-            success: true,
-            message: 'Password updated successfully'
-        });
-    } catch (error) {
-        next(error);
-    }
 }; 
