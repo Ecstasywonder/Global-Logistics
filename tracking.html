@@ -11,13 +11,51 @@
 <body class="dashboard-body">
     <!-- Dashboard Navigation (Same as dashboard.html) -->
     <nav class="dashboard-nav">
-        <!-- Same navigation content -->
+        <div class="logo">
+            <img src="assets/logo.png" alt="LogiTech Solutions">
+        </div>
+        <div class="nav-right">
+            <div class="search-bar">
+                <input type="text" placeholder="Search shipments...">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="user-menu">
+                <img src="assets/user-avatar.jpg" alt="User" class="avatar">
+                <div class="dropdown-menu">
+                    <a href="#profile"><i class="fas fa-user"></i> Profile</a>
+                    <a href="#settings"><i class="fas fa-cog"></i> Settings</a>
+                    <a href="login.html"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                </div>
+            </div>
+        </div>
     </nav>
 
     <div class="dashboard-container">
         <!-- Sidebar (Same as dashboard.html) -->
         <aside class="dashboard-sidebar">
-            <!-- Same sidebar content -->
+            <ul class="sidebar-menu">
+                <li class="active">
+                    <a href="#overview"><i class="fas fa-home"></i> Overview</a>
+                </li>
+                <li>
+                    <a href="#shipments"><i class="fas fa-boxes"></i> Shipments</a>
+                </li>
+                <li>
+                    <a href="#tracking"><i class="fas fa-map-marker-alt"></i> Track</a>
+                </li>
+                <li>
+                    <a href="#quotes"><i class="fas fa-calculator"></i> Get Quote</a>
+                </li>
+                <li>
+                    <a href="#documents"><i class="fas fa-file-alt"></i> Documents</a>
+                </li>
+                <li>
+                    <a href="#billing"><i class="fas fa-credit-card"></i> Billing</a>
+                </li>
+                <li>
+                    <a href="#support"><i class="fas fa-headset"></i> Support</a>
+                </li>
+            </ul>
         </aside>
 
         <!-- Main Content -->
